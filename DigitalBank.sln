@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBank.API", "DigitalBank.API\DigitalBank.API.csproj", "{858D4A0F-297C-4719-848D-B678F313B6E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBank.Data", "DigitalBank.Data\DigitalBank.Data.csproj", "{99724461-D876-439C-9A93-A45107DEEABB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBank.Domain", "DigitalBank.Domain\DigitalBank.Domain.csproj", "{545CDC4A-972C-4C2A-ABBF-5DF2F06C22A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBank.Tests", "DigitalBank.Tests\DigitalBank.Tests.csproj", "{DB2A2E87-9A92-4AFE-8D28-8ACF9CDC9B2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBank.Shared", "DigitalBank.Shared\DigitalBank.Shared.csproj", "{79712A9F-6823-4232-A81D-6BAC8A3D300E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBank.GraphQL", "DigitalBank.GraphQL\DigitalBank.GraphQL.csproj", "{21902B5A-C462-4652-90C0-F6085F100FC8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{858D4A0F-297C-4719-848D-B678F313B6E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{858D4A0F-297C-4719-848D-B678F313B6E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{858D4A0F-297C-4719-848D-B678F313B6E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{858D4A0F-297C-4719-848D-B678F313B6E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99724461-D876-439C-9A93-A45107DEEABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99724461-D876-439C-9A93-A45107DEEABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99724461-D876-439C-9A93-A45107DEEABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99724461-D876-439C-9A93-A45107DEEABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{545CDC4A-972C-4C2A-ABBF-5DF2F06C22A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{545CDC4A-972C-4C2A-ABBF-5DF2F06C22A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{545CDC4A-972C-4C2A-ABBF-5DF2F06C22A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{545CDC4A-972C-4C2A-ABBF-5DF2F06C22A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB2A2E87-9A92-4AFE-8D28-8ACF9CDC9B2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB2A2E87-9A92-4AFE-8D28-8ACF9CDC9B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB2A2E87-9A92-4AFE-8D28-8ACF9CDC9B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB2A2E87-9A92-4AFE-8D28-8ACF9CDC9B2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79712A9F-6823-4232-A81D-6BAC8A3D300E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79712A9F-6823-4232-A81D-6BAC8A3D300E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79712A9F-6823-4232-A81D-6BAC8A3D300E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79712A9F-6823-4232-A81D-6BAC8A3D300E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21902B5A-C462-4652-90C0-F6085F100FC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21902B5A-C462-4652-90C0-F6085F100FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21902B5A-C462-4652-90C0-F6085F100FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21902B5A-C462-4652-90C0-F6085F100FC8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,17 @@
+node_modules
+bin 
+obj
+yarn.lock
+package-lock.json
+.vscode
+.DS_Store
+Build
+ssh.env
+updater.log
+.idea
+/*.user
+.dll
+
+
+appsettings.Production.json
+appsettings.Development.json
