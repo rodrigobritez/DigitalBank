@@ -7,19 +7,17 @@ namespace DigitalBank.Tests.DTOs;
 public class UpdateAccountDTOTest
 {
   [TestMethod]
+  [TestCategory("Domain-Dto")]
   public void UpdateAccountDTO_ShouldReturnSameObject()
   {
-    // Arrange
     var dto = new UpdateAccountDTO
     {
       Name = "John Doe",
       DocumentNumber = "123456789"
     };
 
-    // Act
     var result = new Account(dto.Name, dto.DocumentNumber, 1);
 
-    // Assert
     Assert.AreEqual(dto.Name, result.Name);
     Assert.AreEqual(dto.DocumentNumber, result.DocumentNumber);
   }

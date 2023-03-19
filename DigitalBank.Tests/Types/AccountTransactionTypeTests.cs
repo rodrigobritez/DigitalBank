@@ -9,15 +9,13 @@ namespace DigitalBank.Tests.Types;
 public class AccountTransactionTypeTests
 {
   [TestMethod]
+  [TestCategory("Graphql-Type")]
   public void AccountTransactionType_HasCorrectFields()
   {
-    // Arrange
     var accountTransactionType = new AccountTransactionType();
 
-    // Act
     var accountNumberField = accountTransactionType.Fields.FirstOrDefault(f => f.Name == "AccountNumber");
-
-    // Assert
+    
     Assert.IsNotNull(accountNumberField);
     Assert.AreEqual("The number of account", accountNumberField.Description);
   }

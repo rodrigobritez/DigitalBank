@@ -6,16 +6,14 @@ namespace DigitalBank.Tests.Commands;
 public class GetAccountByNumberCommandTests
 {
   [TestMethod]
+  [TestCategory("Domain-Command")]
   public void Constructor_ShouldSetAccountNumberAndCancellationToken()
   {
-    // Arrange
-    int accountNumber = 12345;
-    CancellationToken cancellationToken = new CancellationToken();
+    const int accountNumber = 12345;
+    var cancellationToken = new CancellationToken();
 
-    // Act
-    GetAccountByNumberCommand getAccountByNumberCommand = new GetAccountByNumberCommand(accountNumber, cancellationToken);
-
-    // Assert
+    var getAccountByNumberCommand = new GetAccountByNumberCommand(accountNumber, cancellationToken);
+    
     Assert.AreEqual(accountNumber, getAccountByNumberCommand.AccountNumber);
     Assert.AreEqual(cancellationToken, getAccountByNumberCommand.CancellationToken);
   }

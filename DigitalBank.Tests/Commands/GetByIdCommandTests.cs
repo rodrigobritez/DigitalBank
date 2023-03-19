@@ -6,16 +6,14 @@ namespace DigitalBank.Tests.Commands;
 public class GetByIdCommandTests
 {
   [TestMethod]
+  [TestCategory("Domain-Command")]
   public void Constructor_ShouldSetIdAndCancellationToken()
   {
-    // Arrange
-    Guid id = Guid.NewGuid();
-    CancellationToken cancellationToken = new CancellationToken();
-
-    // Act
-    GetByIdCommand getByIdCommand = new GetByIdCommand(id, cancellationToken);
-
-    // Assert
+    var id = Guid.NewGuid();
+    var cancellationToken = new CancellationToken();
+    
+    var getByIdCommand = new GetByIdCommand(id, cancellationToken);
+    
     Assert.AreEqual(id, getByIdCommand.Id);
     Assert.AreEqual(cancellationToken, getByIdCommand.CancellationToken);
   }

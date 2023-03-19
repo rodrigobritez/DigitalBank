@@ -8,19 +8,17 @@ namespace DigitalBank.Tests.DTOs;
 public class CreateTransactionDTOTest
 {
   [TestMethod]
+  [TestCategory("Domain-Dto")]
   public void CreateTransactionDTO_ShouldReturnSameObject()
   {
-    // Arrange
     var dto = new CreateTransactionDTO
     {
       Amount = 100.00m,
       Type = ETransactionType.DEPOSIT
     };
 
-    // Act
     var result = new Transaction(dto.Amount, dto.Type);
 
-    // Assert
     Assert.AreEqual(dto.Amount, result.Amount);
     Assert.AreEqual(dto.Type, result.Type);
   }

@@ -7,16 +7,14 @@ namespace DigitalBank.Tests.Commands;
 public class CreateAccountCommandTests
 {
   [TestMethod]
+  [TestCategory("Domain-Command")]
   public void Constructor_ShouldSetAccountAndCancellationToken()
   {
-    // Arrange
-    Account account = new Account();
-    CancellationToken cancellationToken = new CancellationToken();
-
-    // Act
-    CreateAccountCommand createAccountCommand = new CreateAccountCommand(account, cancellationToken);
-
-    // Assert
+    var account = new Account();
+    var cancellationToken = new CancellationToken();
+    
+    var createAccountCommand = new CreateAccountCommand(account, cancellationToken);
+    
     Assert.AreEqual(account, createAccountCommand.Account);
     Assert.AreEqual(cancellationToken, createAccountCommand.CancellationToken);
   }

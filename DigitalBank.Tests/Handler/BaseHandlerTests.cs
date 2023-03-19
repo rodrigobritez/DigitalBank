@@ -7,16 +7,14 @@ namespace DigitalBank.Tests.Handler;
 public class BaseHandlerTests
 {
   [TestMethod]
+  [TestCategory("Domain-Handler")]
   public void HandleErrors_ShouldReturnDefaultError()
   {
-    // Arrange
     var baseHandler = new BaseHandler();
     var exception = new Exception("Test Exception");
 
-    // Act
     var result = baseHandler.HandleErrors(exception);
 
-    // Assert
     Assert.IsNotNull(result);
     Assert.AreEqual(ECommandResultStatus.ERROR, result.Status);
     Assert.AreEqual("Exception: Test Exception", result.Message);

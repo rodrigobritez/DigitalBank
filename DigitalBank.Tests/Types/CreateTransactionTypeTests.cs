@@ -8,17 +8,15 @@ namespace DigitalBank.Tests.Types;
 public class CreateTransactionTypeTests
 {
   [TestMethod]
+  [TestCategory("Graphql-Type")]
   public void CreateTransactionType_HasCorrectFields()
   {
-    // Arrange
     var createTransactionType = new CreateTransactionType();
 
-    // Act
     var amountField = createTransactionType.Fields.FirstOrDefault(f => f.Name == "Amount");
     var typeField = createTransactionType.Fields.FirstOrDefault(f => f.Name == "Type");
     var accountField = createTransactionType.Fields.FirstOrDefault(f => f.Name == "Account");
-
-    // Assert
+    
     Assert.IsNotNull(amountField);
     Assert.AreEqual("The amount of transaction", amountField.Description);
 

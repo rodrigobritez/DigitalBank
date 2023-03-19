@@ -7,19 +7,17 @@ namespace DigitalBank.Tests.Types;
 public class AccountTypeTests
 {
   [TestMethod]
+  [TestCategory("Graphql-Type")]
   public void AccountType_HasCorrectFields()
   {
-    // Arrange
     var accountType = new AccountType();
-
-    // Act
+    
     var nameField = accountType.Fields.FirstOrDefault(f => f.Name == "Name");
     var balanceField = accountType.Fields.FirstOrDefault(f => f.Name == "Balance");
     var accountNumberField = accountType.Fields.FirstOrDefault(f => f.Name == "AccountNumber");
     var documentNumberField = accountType.Fields.FirstOrDefault(f => f.Name == "DocumentNumber");
     var transactionsField = accountType.Fields.FirstOrDefault(f => f.Name == "Transactions");
 
-    // Assert
     Assert.IsNotNull(nameField);
     Assert.AreEqual("The name of account", nameField.Description);
 

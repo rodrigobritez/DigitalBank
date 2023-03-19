@@ -7,16 +7,14 @@ namespace DigitalBank.Tests.Commands;
 public class UpdateAccountCommandTests
 {
   [TestMethod]
+  [TestCategory("Domain-Command")]
   public void Constructor_ShouldSetAccountAndCancellationToken()
   {
-    // Arrange
-    Account account = new Account();
-    CancellationToken cancellationToken = new CancellationToken();
-
-    // Act
-    UpdateAccountCommand updateAccountCommand = new UpdateAccountCommand(account, cancellationToken);
-
-    // Assert
+    var account = new Account();
+    var cancellationToken = new CancellationToken();
+    
+    var updateAccountCommand = new UpdateAccountCommand(account, cancellationToken);
+    
     Assert.AreEqual(account, updateAccountCommand.Account);
     Assert.AreEqual(cancellationToken, updateAccountCommand.CancellationToken);
   }

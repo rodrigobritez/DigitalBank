@@ -10,39 +10,37 @@ namespace DigitalBank.Tests.Entities;
   public class TransactionTests
   {
     [TestMethod]
+    [TestCategory("Domain-Entity")]
     public void Constructor_ShouldSetProperties()
     {
-      decimal amount = 100;
-      ETransactionType type = ETransactionType.DEPOSIT;
+      const decimal amount = 100;
+      const ETransactionType type = ETransactionType.DEPOSIT;
 
-      Transaction transaction = new Transaction(amount, type);
+      var transaction = new Transaction(amount, type);
 
       Assert.AreEqual(amount, transaction.Amount);
       Assert.AreEqual(type, transaction.Type);
     }
     
     [TestMethod]
+    [TestCategory("Domain-Entity")]
     public void Id_ShouldBeGenerated()
     {
-      // Arrange
-      Transaction transaction1 = new Transaction();
-      Transaction transaction2 = new Transaction();
-
-      // Assert
+      var transaction1 = new Transaction();
+      var transaction2 = new Transaction();
+      
       Assert.AreNotEqual(transaction1.Id, transaction2.Id);
     }
     
     [TestMethod]
+    [TestCategory("Domain-Entity")]
     public void Account_ShouldBeSet()
     {
-      // Arrange
-      Account account = new Account();
-      Transaction transaction = new Transaction();
+      var account = new Account();
+      var transaction = new Transaction();
 
-      // Act
       transaction.Account = account;
 
-      // Assert
       Assert.AreEqual(account, transaction.Account);
     }
   }

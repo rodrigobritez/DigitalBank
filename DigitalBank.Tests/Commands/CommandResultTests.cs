@@ -8,35 +8,31 @@ namespace DigitalBank.Tests.Commands;
 public class CommandResultTests
 {
   [TestMethod]
+  [TestCategory("Domain-Command")]
   public void Constructor_ShouldSetProperties()
   {
-    // Arrange
-    ECommandResultStatus status = ECommandResultStatus.SUCCESS;
-    string message = "Command executed successfully";
-    string errorCode = "123";
-
-    // Act
-    CommandResult commandResult = new CommandResult(status, message, errorCode);
-
-    // Assert
+    const ECommandResultStatus status = ECommandResultStatus.SUCCESS;
+    const string message = "Command executed successfully";
+    const string errorCode = "123";
+    
+    var commandResult = new CommandResult(status, message, errorCode);
+    
     Assert.AreEqual(status, commandResult.Status);
     Assert.AreEqual(message, commandResult.Message);
     Assert.AreEqual(errorCode, commandResult.ErrorCode);
   }
 
   [TestMethod]
+  [TestCategory("Domain-Command")]
   public void ConstructorWithType_ShouldSetPropertiesAndResult()
   {
-    // Arrange
-    ECommandResultStatus status = ECommandResultStatus.SUCCESS;
-    string message = "Command executed successfully";
-    string errorCode = "123";
-    Account account = new Account();
-
-    // Act
-    CommandResult<Account> commandResult = new CommandResult<Account>(status, message, account, errorCode);
-
-    // Assert
+    const ECommandResultStatus status = ECommandResultStatus.SUCCESS;
+    const string message = "Command executed successfully";
+    const string errorCode = "123";
+    var account = new Account();
+    
+    var commandResult = new CommandResult<Account>(status, message, account, errorCode);
+    
     Assert.AreEqual(status, commandResult.Status);
     Assert.AreEqual(message, commandResult.Message);
     Assert.AreEqual(errorCode, commandResult.ErrorCode);

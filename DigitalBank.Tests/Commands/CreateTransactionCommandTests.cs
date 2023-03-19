@@ -8,17 +8,15 @@ namespace DigitalBank.Tests.Commands;
 public class CreateTransactionCommandTests
 {
   [TestMethod]
+  [TestCategory("Domain-Command")]
   public void Constructor_ShouldSetTransactionAccountNumberAndCancellationToken()
   {
-    // Arrange
-    Transaction transaction = new Transaction(100.00m, ETransactionType.DEPOSIT);
-    int accountNumber = 12345;
-    CancellationToken cancellationToken = new CancellationToken();
-
-    // Act
-    CreateTransactionCommand createTransactionCommand = new CreateTransactionCommand(transaction, accountNumber, cancellationToken);
-
-    // Assert
+    var transaction = new Transaction(100.00m, ETransactionType.DEPOSIT);
+    const int accountNumber = 12345;
+    var cancellationToken = new CancellationToken();
+    
+    var createTransactionCommand = new CreateTransactionCommand(transaction, accountNumber, cancellationToken);
+    
     Assert.AreEqual(transaction, createTransactionCommand.Transaction);
     Assert.AreEqual(accountNumber, createTransactionCommand.AccountNumber);
     Assert.AreEqual(cancellationToken, createTransactionCommand.CancellationToken);
