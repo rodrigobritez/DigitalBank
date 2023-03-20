@@ -47,7 +47,7 @@ public class AccountHandler : BaseHandler, IAccountHandler
 
       if (!validationResult.IsValid)
         return new CommandResult<Account>(
-          ECommandResultStatus.ALERT,
+          ECommandResultStatus.ERROR,
           validationResult.ToString(),
           command.Account,
           "VALIDATION_ERROR"
@@ -85,7 +85,7 @@ public class AccountHandler : BaseHandler, IAccountHandler
 
       if (!validationResult.IsValid)
         return new CommandResult<Account>(
-          ECommandResultStatus.ALERT,
+          ECommandResultStatus.ERROR,
           validationResult.ToString(),
           command.Account,
           "VALIDATION_ERROR"
@@ -98,7 +98,7 @@ public class AccountHandler : BaseHandler, IAccountHandler
 
       if(account == null!)
         return new CommandResult<Account>(
-          ECommandResultStatus.ALERT,
+          ECommandResultStatus.ERROR,
           "Account not found",
           null!,
           "ACCOUNT_NOT_FOUND"
@@ -129,13 +129,30 @@ public class AccountHandler : BaseHandler, IAccountHandler
     {
       var account = await _accountRepository.FindAsync(
         x => x.AccountNumber == command.AccountNumber,
-        null!,
+        new[] { "Transactions" },
         command.CancellationToken);
       
       return new CommandResult<Account>(
         ECommandResultStatus.SUCCESS,
         "Successfully Retrieved",
         account);
+    }
+    catch (Exception e)
+    {
+      return HandleErrors(e).ToCommandResult<Account>();
+    }
+  }
+  
+  public async Task<ICommandResult<Account>> HandleAsync(DeleteAccountCommand command)
+  {
+    try
+    {
+      await _accountRepository.SoftDeleteAsync(command.Account, command.CancellationToken);
+      await _accountRepository.Commit(command.CancellationToken);
+      return new CommandResult<Account>(
+        ECommandResultStatus.SUCCESS,
+        "Successfully Deleted",
+        command.Account);
     }
     catch (Exception e)
     {

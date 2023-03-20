@@ -6,7 +6,7 @@ namespace DigitalBank.Domain.Interfaces.Handlers;
 
 public interface IAccountHandler : ICommandHandler<GetByIdCommand, Account>,
   ICommandHandler<CreateAccountCommand, Account>, ICommandHandler<UpdateAccountCommand, Account>,
-  ICommandHandler<GetAccountByNumberCommand, Account>
+  ICommandHandler<GetAccountByNumberCommand, Account>, ICommandHandler<DeleteAccountCommand, Account>
 {
   
 }

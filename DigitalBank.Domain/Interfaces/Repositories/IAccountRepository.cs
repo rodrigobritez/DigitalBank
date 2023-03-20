@@ -13,4 +13,6 @@ public interface IAccountRepository : IBaseRepository
     CancellationToken cancellationToken);
 
   public Task UpdateAsync(Account account, CancellationToken cancellationToken);
+  public Task SoftDeleteAsync(Account account, CancellationToken cancellationToken);
+  public Task DetachEntity(Account account);
 }

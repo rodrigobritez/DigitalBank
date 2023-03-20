@@ -19,6 +19,7 @@ public class TransactionController : ControllerBase
     CancellationToken cancellationToken = default)
   {
     var transaction = new Transaction(transactionDto.Amount, transactionDto.Type);
+    transaction.Account = new Account("", "", accountNumber);
     var command = new CreateTransactionCommand(transaction, accountNumber, cancellationToken);
     var result = await handler.HandleAsync(command);
     return result;

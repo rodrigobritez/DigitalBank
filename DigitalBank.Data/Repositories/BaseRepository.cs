@@ -1,4 +1,5 @@
-﻿using DigitalBank.Domain.Interfaces.Repositories;
+﻿using DigitalBank.Domain.Entities.Base;
+using DigitalBank.Domain.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace DigitalBank.Data.Repositories;

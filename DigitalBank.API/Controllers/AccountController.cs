@@ -12,17 +12,6 @@ namespace DigitalBank.API.Controllers;
 [Route("/account")]
 public class AccountController : ControllerBase
 {
-  [HttpGet("{id:Guid}")]
-  public async Task<ICommandResult<Account>> GetById(
-    Guid id,
-    [FromServices] IAccountHandler handler,
-    CancellationToken cancellationToken = default)
-  {
-    var command = new GetByIdCommand(id, cancellationToken);
-    var result = await handler.HandleAsync(command);
-    return result;
-  }
-  
   [HttpGet("{accountNumber:int}")]
   public async Task<ICommandResult<Account>> GetByAccountNumber(
     int accountNumber,
@@ -54,6 +43,18 @@ public class AccountController : ControllerBase
   {
     var account = new Account(name, documentNumber, accountNumber);
     var command = new CreateAccountCommand(account, cancellationToken);
+    var result = await handler.HandleAsync(command);
+    return result;
+  }
+  
+  [HttpDelete("Delete")]
+  public async Task<ICommandResult<Account>> DeleteAccount(
+    [BindRequired] int accountNumber,
+    [FromServices] IAccountHandler handler,
+    CancellationToken cancellationToken = default)
+  {
+    var account = new Account("", "", accountNumber);
+    var command = new DeleteAccountCommand(account, cancellationToken);
     var result = await handler.HandleAsync(command);
     return result;
   }

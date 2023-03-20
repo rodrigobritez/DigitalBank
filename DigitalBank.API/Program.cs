@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using DigitalBank.API.Extensions;
 using DigitalBank.Data.Context;
 using DigitalBank.GraphQL;
@@ -19,6 +20,9 @@ builder.Services.AddCustomHandlers();
 builder.Services.AddCustomRepositories();
 
 builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -54,8 +58,6 @@ app.UseSwagger();
 app.UseSwaggerUI();
 app.UseGraphQLGraphiQL();
 app.UseGraphQLPlayground();
-
-
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

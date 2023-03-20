@@ -58,5 +58,28 @@ public class AccountMutation : ObjectGraphType
           { "status", response.Status.ToString() }
         });
       });
+    
+    Field<CommandResultType<Account, AccountType>>()
+      .Name("DeleteAccount")
+      .Argument<NonNullGraphType<DeleteAccountType>>(
+        "account", "delete account")
+      .ResolveAsync(async context =>
+      {
+        var accountHandler =
+          context.RequestServices!.GetRequiredService<IAccountHandler>();
+        var accountDynamic = context.GetArgument<Account>("account");
+        var deleteAccountCommand = new DeleteAccountCommand(accountDynamic, context.CancellationToken);
+
+        var response = await accountHandler.HandleAsync(deleteAccountCommand);
+
+        if (response.Status != ECommandResultStatus.ERROR)
+          return response;
+
+        throw new ExecutionError(response.Message, new Dictionary<string, string>
+        {
+          { "errorCode", response.ErrorCode},
+          { "status", response.Status.ToString() }
+        });
+      });
   }
 }

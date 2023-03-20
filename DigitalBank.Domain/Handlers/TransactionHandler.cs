@@ -30,7 +30,7 @@ public class TransactionHandler : BaseHandler, ITransactionHandler
 
       if (!validationResult.IsValid)
         return new CommandResult<Transaction>(
-          ECommandResultStatus.ALERT,
+          ECommandResultStatus.ERROR,
           validationResult.ToString(),
           command.Transaction,
           "VALIDATION_ERROR"
@@ -40,6 +40,14 @@ public class TransactionHandler : BaseHandler, ITransactionHandler
         x => x.AccountNumber == command.Transaction.Account!.AccountNumber,
         null,
         command.CancellationToken);
+      
+      if(account == null!)
+        return new CommandResult<Transaction>(
+          ECommandResultStatus.ERROR,
+          "Account not found",
+          null!,
+          "ACCOUNT_NOT_FOUND"
+        );
       
       using (var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
       {
