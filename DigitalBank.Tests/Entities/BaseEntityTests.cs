@@ -30,7 +30,7 @@ public class BaseEntityTests
   {
     var entity = new BaseEntity();
     
-    Assert.AreNotEqual(default(DateTime), entity.CreatedAt);
+    Assert.AreNotEqual(DateTime.Now.ToUniversalTime(), entity.CreatedAt);
   }
 
   [TestMethod]

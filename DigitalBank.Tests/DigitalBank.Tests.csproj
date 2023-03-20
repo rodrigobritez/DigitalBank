@@ -21,10 +21,10 @@
     <ProjectReference Include="..\DigitalBank.Domain\DigitalBank.Domain.csproj" />
     <ProjectReference Include="..\DigitalBank.GraphQL\DigitalBank.GraphQL.csproj" />
     <ProjectReference Include="..\DigitalBank.Data\DigitalBank.Data.csproj" />
+    <ProjectReference Include="..\DigitalBank.API\DigitalBank.API.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Helpers" />
     <Folder Include="Mutations" />
     <Folder Include="Queries" />
   </ItemGroup>

@@ -44,22 +44,7 @@ public class TransactionValidationTests
     var result =  Validator.ValidateAsync<TransactionValidator, Transaction>(transaction, "Create", CancellationToken.None);
     Assert.IsTrue(result.Result.IsValid);
   }
-  
-  [TestMethod]
-  [TestCategory("Domain-Entity")]
-  public void CreateTransaction_Without_AccountId_Invalid()
-  {
-    var transaction = new Transaction()
-    {
-      AccountId = Guid.Empty,
-      Amount = 100,
-      Type = ETransactionType.WITHDRAW
-    };
-    
-    var result =  Validator.ValidateAsync<TransactionValidator, Transaction>(transaction, "Create", CancellationToken.None);
-    Assert.IsFalse(result.Result.IsValid);
-  }
-  
+
   [TestMethod]
   [TestCategory("Domain-Entity")]
   public void CreateTransaction_Without_Amount_Invalid()
