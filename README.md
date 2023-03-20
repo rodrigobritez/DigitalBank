@@ -2,21 +2,21 @@
 Challenge from Functional Tech
 
 
-## stack
-* .net core
+## Stack
+* .Net6 core
 * Entity framework ORM
 * GraphQL
 * MS Test
 * PostgreSQL
 
 
-## instalation
-### docker
-create docker container
+## Instalation
+### Docker
+Create docker container
 ```console
 docker build -t digital-bank .\
 ````
-run project container
+Run project container
 ```console
 docker run -d -p 8080:80 --name digital-bank digital-bank
 ```
@@ -40,4 +40,4 @@ http://localhost:8080/ui/playground
 
 ## Code details
 
-all the functionalities created are detailed in the documentation made in this [Link](https://dvc.org).
+All the functionalities created are detailed in the documentation made in this [Link](https://dvc.org).
