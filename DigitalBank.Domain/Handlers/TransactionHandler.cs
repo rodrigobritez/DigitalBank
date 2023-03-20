@@ -1,5 +1,4 @@
-﻿
-using System.Transactions;
+﻿using System.Transactions;
 using DigitalBank.Domain.Commands;
 using DigitalBank.Domain.Interfaces.Commands;
 using DigitalBank.Domain.Interfaces.Handlers;
@@ -38,7 +37,7 @@ public class TransactionHandler : BaseHandler, ITransactionHandler
       
       var account = await _accountRepository.FindAsync(
         x => x.AccountNumber == command.Transaction.Account!.AccountNumber,
-        null,
+        null!,
         command.CancellationToken);
       
       if(account == null!)

@@ -27,6 +27,14 @@ public class AccountHandler : BaseHandler, IAccountHandler
         new[] { "Transactions" },
         command.CancellationToken);
       
+      if(account == null!)
+        return new CommandResult<Account>(
+          ECommandResultStatus.ERROR,
+          "Account not found",
+          null!,
+          "ACCOUNT_NOT_FOUND"
+        );
+      
       return new CommandResult<Account>(
         ECommandResultStatus.SUCCESS,
         "Successfully Retrieved",
@@ -55,11 +63,6 @@ public class AccountHandler : BaseHandler, IAccountHandler
       
       using (var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
       {
-        var account = await _accountRepository.FindAsync(
-          x => x.AccountNumber == command.Account.AccountNumber,
-          new[] { "Transactions" },
-          command.CancellationToken);
-        
         await _accountRepository.AddAsync(command.Account, command.CancellationToken);
         await _accountRepository.Commit(command.CancellationToken);
         scope.Complete();
@@ -131,6 +134,14 @@ public class AccountHandler : BaseHandler, IAccountHandler
         x => x.AccountNumber == command.AccountNumber,
         new[] { "Transactions" },
         command.CancellationToken);
+      
+      if(account == null!)
+        return new CommandResult<Account>(
+          ECommandResultStatus.ERROR,
+          "Account not found",
+          null!,
+          "ACCOUNT_NOT_FOUND"
+        );
       
       return new CommandResult<Account>(
         ECommandResultStatus.SUCCESS,
