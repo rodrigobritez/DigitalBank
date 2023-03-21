@@ -75,7 +75,7 @@ namespace DigitalBank.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DocumentNumber")
+                    b.HasIndex("AccountNumber")
                         .IsUnique()
                         .HasFilter("deleted = false");
 

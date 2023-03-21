@@ -13,7 +13,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DigitalBank.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230318185728_First-Migration")]
+    [Migration("20230321213806_First-Migration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,7 +77,7 @@ namespace DigitalBank.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DocumentNumber")
+                    b.HasIndex("AccountNumber")
                         .IsUnique()
                         .HasFilter("deleted = false");
 

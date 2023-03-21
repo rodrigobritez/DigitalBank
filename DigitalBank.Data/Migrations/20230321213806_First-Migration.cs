@@ -63,10 +63,10 @@ namespace DigitalBank.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_reg_accounts_document_number",
+                name: "IX_reg_accounts_account_number",
                 schema: "digital_bank",
                 table: "reg_accounts",
-                column: "document_number",
+                column: "account_number",
                 unique: true,
                 filter: "deleted = false");
 
