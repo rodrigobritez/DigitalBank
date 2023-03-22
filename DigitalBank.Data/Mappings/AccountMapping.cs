@@ -29,6 +29,6 @@ public class AccountMapping : BaseEntityMap<Account>
       .HasForeignKey(x => x.AccountId);
     
     // Constraints and indexes
-    builder.HasIndex(x => new { x.DocumentNumber }).IsUnique().HasFilter("deleted = false");
+    builder.HasIndex(x => new { x.AccountNumber }).IsUnique().HasFilter("deleted = false");
   }
 }
