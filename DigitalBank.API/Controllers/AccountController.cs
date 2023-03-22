@@ -12,6 +12,17 @@ namespace DigitalBank.API.Controllers;
 [Route("/account")]
 public class AccountController : ControllerBase
 {
+  [HttpGet("{id:Guid}")]
+  public async Task<ICommandResult<Account>> GetAccountById(
+    Guid id,
+    [FromServices] IAccountHandler handler,
+    CancellationToken cancellationToken = default)
+  {
+    var command = new GetByIdCommand(id, cancellationToken);
+    var result = await handler.HandleAsync(command);
+    return result;
+  }
+
   [HttpGet("{accountNumber:int}")]
   public async Task<ICommandResult<Account>> GetByAccountNumber(
     int accountNumber,
