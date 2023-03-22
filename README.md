@@ -16,16 +16,6 @@ Challenge from Functional Tech
 * Validations: [fluent validation](https://www.nuget.org/packages/FluentValidation)
 * API Documentation: [Swagger](https://www.nuget.org/packages/Swashbuckle.AspNetCore/6.2.3?_src=template)
 
-## Modules
-**API** ⇒ Sendo a Web API e contendo a parte de configuração do sistema, também é onde se encontra os *controllers* da parte *Rest* do sistema.
-
-**Data** ⇒ Sendo uma Classlib e contendo a parte de configuração do banco de dados, onde se encontra as *migrations* do sistema e também onde fica a implementação dos *repositories* da API.
-
-**Domain** ⇒ Sendo uma Classlib e contendo a parte central da aplicação onde se encontra todas as interfaces do sistema, além disso os commands, handlers, *entities* e *validators*.
-
-**GraphQL** ⇒ Sendo uma Classlib e contendo a configuração do Graphql e suas *queries* e *mutations.*
-
-**Tests** ⇒ Sendo uma MStest e contendo todos os testes unitários do sistema.
 ## Instalation
 ### Docker
 create docker container
