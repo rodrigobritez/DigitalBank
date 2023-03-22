@@ -10,7 +10,7 @@ Challenge from Functional Tech
 * Framework: [.NET core 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 * ORM: 
 [Entity framework ORM](https://www.nuget.org/packages/EntityFramework)
-* GraphQL: [GraphQL .NET](nuget.org/packages/GraphQL/4.7.1?_src=template)
+* GraphQL: [GraphQL](nuget.org/packages/GraphQL/4.7.1?_src=template)
 * Unit tests: [MS Test](https://www.nuget.org/packages/MSTest.TestFramework/2.2.8?_src=template)
 * Coverage: [Coverlet](https://www.nuget.org/packages/coverlet.collector/3.1.2?_src=template)
 * Validations: [fluent validation](https://www.nuget.org/packages/FluentValidation)
